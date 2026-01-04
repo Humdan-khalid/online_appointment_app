@@ -14,7 +14,7 @@ def create_hash_password(password: str):
     return password_hashing
 
 
-def verify_hasing_password(plain_password: str, hash_password: str):
+def verify_hash_password(plain_password: str, hash_password: str):
     if plain_password is None or hash_password is None:
         raise ValueError("plain password or hash password is None")
     password_verify = pwd_context.verify(plain_password, hash_password)

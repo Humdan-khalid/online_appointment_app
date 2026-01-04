@@ -1,4 +1,4 @@
-from sqlmodel import create_engine
+from sqlmodel import create_engine, SQLModel
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -15,4 +15,7 @@ engine = create_engine(
         max_overflow=30
     )
 
+def create_tables():
+    SQLModel.metadata.create_all(engine)
 
+create_tables()

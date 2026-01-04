@@ -10,7 +10,6 @@ def create_hash_password(password: str):
     if password is None:
         raise ValueError("Password is None!")
     password_hashing = pwd_context.hash(password)
-    print(password_hashing)
     return password_hashing
 
 

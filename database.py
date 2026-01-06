@@ -44,3 +44,23 @@ class CreateStaff(BaseModel):
 class VerifyStaff(BaseModel):
     email: EmailStr
     password: str
+
+class Admins(SQLModel, table=True):
+    id: int = Field(default=None, primary_key=True)
+    name: str = Field(min_length=3, max_length=30, nullable=False)
+    age: int = Field(ge=19, le=75, nullable=False)
+    phone_number: str = Field(min_length=11, max_length=11, unique=True, nullable=False)
+    email: EmailStr = Field(index=True, nullable=False)
+    password: str = Field(min_length=8, max_length=150, nullable=False)
+
+class CreateAdmin(BaseModel):
+    name: str = Field(min_length=3, max_length=30, nullable=False)
+    age: int = Field(ge=19, le=75, nullable=False)
+    phone_number: str = Field(min_length=11, max_length=11, unique=True, nullable=False)
+    email: EmailStr = Field(index=True, nullable=False)
+    password: str = Field(min_length=8, max_length=150, nullable=False)
+
+class VerifyAdmin(BaseModel):
+    email: EmailStr
+    password: str
+
